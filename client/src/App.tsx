@@ -2,6 +2,7 @@ import { Shield } from 'lucide-react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { PasswordStrengthChecker } from '@/components/PasswordStrengthChecker'
 import { VulnerabilityScan } from '@/components/VulnerabilityScan'
+import { PasswordGenerator } from '@/components/PasswordGenerator'
 
 function App() {
   return (
@@ -16,15 +17,16 @@ function App() {
             <h1 className="text-3xl font-bold tracking-tight">Password Manager</h1>
           </div>
           <p className="text-muted-foreground text-sm max-w-md mx-auto">
-            Analyze password strength, check for data breaches, and keep your accounts secure.
+            Analyze password strength, check for data breaches, generate strong passwords, and keep your accounts secure.
           </p>
         </div>
 
         {/* Tabs */}
         <Tabs defaultValue="strength" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 mb-6">
+          <TabsList className="grid w-full grid-cols-3 mb-6">
             <TabsTrigger value="strength">Strength Checker</TabsTrigger>
             <TabsTrigger value="scan">Vulnerability Scan</TabsTrigger>
+            <TabsTrigger value="generate">Generator</TabsTrigger>
           </TabsList>
 
           <TabsContent value="strength">
@@ -33,6 +35,10 @@ function App() {
 
           <TabsContent value="scan">
             <VulnerabilityScan />
+          </TabsContent>
+
+          <TabsContent value="generate">
+            <PasswordGenerator />
           </TabsContent>
         </Tabs>
       </div>
