@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  server:
+    build: ./server
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL}
+      - BASE_URL=${BASE_URL}
+    restart: unless-stopped
+    container_name: password-manager-server
