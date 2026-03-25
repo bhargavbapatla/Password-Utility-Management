@@ -1,7 +1,8 @@
 
-const express = require("express");
-const dotenv = require("dotenv");
-const cors = require("cors");
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import passwordRoutes from './router/passwordRoutes.js';
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
+app.use("/api", passwordRoutes);
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

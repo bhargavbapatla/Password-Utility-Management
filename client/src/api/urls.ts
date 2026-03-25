@@ -1,0 +1,1 @@
+export const checkPasswordBreachUrl = "/api/check-breach";
